@@ -1,0 +1,40 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 10px;
+    margin: 20px;
+}
+
+.high-scores {
+    padding: 20px;
+    float: left;
+}
+.timer {
+    float: right;
+    padding: 20px;
+}
+
+section{
+    padding: 20px;
+    margin-top:150px;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 52px;
+}
+
+article {
+    font-size: 26px;
+    padding: ;
+}
+
+button {
+    background-color: purple;
+    color: white;
+    padding: 7px;
+    margin-top: 25px;
+}
