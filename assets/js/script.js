@@ -5,11 +5,15 @@ var quizBox = document.querySelector('.quiz-section');
 
 var questionLine = document.querySelector('.title');
 
-var choiceLine = document.querySelector('.text')
+var textLine = document.querySelector('.text')
 
 var timeDisplay = document.querySelector('.time');
 
+var choiceLine = document.querySelector('.choiceDisplay');
+
 var timer = 60;
+
+var score = 0;
 
 
 
@@ -52,21 +56,37 @@ var questions = [
      }, 1000);
     }
 
+    function displayQuestion() {
+
+        for(var i =0; i < questions.length; i++) {
+
+            textLine.innerHTML = "";
+
+            questionLine.innerHTML = questions[i].question;
+    
+            questions[i].choices.forEach(function (item) {
+            var bubbleBtn = document.createElement("button");
+            bubbleBtn.textContent = item;
+            textLine.append(bubbleBtn);
+
+            quizButton.style.visibility = "hidden";
+        })
+          
+    }  
+}
 
     quizButton.addEventListener('click', function() {
 
         startTimer();
-
-        for(var i =0; i < questions.length; i++) {
-
-        
-            questionLine.innerHTML = questions[i].question;
-
-            var form = document.createElement("input");
-            form.setAttribute("type", "radio");
-            
-
-            choiceLine.innerHTML = form;
-
+        displayQuestion();  
        }
-    });
+    );
+
+
+
+
+
+
+   
+
+   
