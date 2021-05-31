@@ -1,7 +1,17 @@
 
 var quizButton = document.querySelector('.start-quiz');
 
-var timer = 0;
+var quizBox = document.querySelector('.quiz-section');
+
+var questionLine = document.querySelector('.title');
+
+var choiceLine = document.querySelector('.text')
+
+var timeDisplay = document.querySelector('.time');
+
+var timer = 60;
+
+
 
 var questions = [
     {
@@ -30,10 +40,33 @@ var questions = [
 
 ];
 
-quizButton.addEventListener('click', function() {
+ function startTimer() {
+     var counter = setInterval(function() { 
+         if (timer >= 0) {
+             timeDisplay.textContent = 'Time:' + timer 
+             timer--;
+         } else {
+             timeDisplay.textContent = "";
+             clearInterval(counter);
+         }
+     }, 1000);
+    }
 
-    for (var i = 0; i < questions.length; i++) {
+
+    quizButton.addEventListener('click', function() {
+
+        startTimer();
+
+        for(var i =0; i < questions.length; i++) {
+
         
-       
+            questionLine.innerHTML = questions[i].question;
 
+            var form = document.createElement("input");
+            form.setAttribute("type", "radio");
+            
 
+            choiceLine.innerHTML = form;
+
+       }
+    });
